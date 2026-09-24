@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0fdf9;
+  color: #12312b;
+}
+
+header {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #d8f3dc;
+}
+
+h1 {
+  margin-bottom: 10px;
+  font-size: 40px;
+}
+
+header p {
+  margin-bottom: 25px;
+  font-size: 18px;
+}
+
+form {
+  max-width: 600px;
+  margin: auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.search-box {
+  display: flex;
+  gap: 10px;
+}
+
+#search-input {
+  flex: 1;
+  padding: 14px;
+  border: 2px solid #40916c;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+#search-button {
+  padding: 14px 22px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2d6a4f;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#search-button:hover {
+  background-color: #1b4332;
+}
+
+.categories {
+  margin-top: 25px;
+}
+
+.categories button {
+  margin: 5px;
+  padding: 9px 16px;
+  border: 1px solid #40916c;
+  border-radius: 20px;
+  background-color: white;
+  color: #2d6a4f;
+  cursor: pointer;
+}
+
+main {
+  padding: 30px 20px;
+}
+
+#empty-message {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #52796f;
+}
+
+/* Responsive grid */
+#results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+}

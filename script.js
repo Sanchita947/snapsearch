@@ -1,13 +1,16 @@
 const form = document.getElementById("search-form");
 const input = document.getElementById("search-input");
+const results = document.getElementById("results");
+const emptyMessage = document.getElementById("empty-message");
 
-function render(items) {
-  const results = document.getElementById("results");
-
+function render(items, query) {
   results.innerHTML = "";
+
+  emptyMessage.textContent = `Showing ${items.length} results for "${query}"`;
 
   items.forEach((item) => {
     const card = document.createElement("article");
+    card.className = "card";
 
     const img = document.createElement("img");
     img.src = item.imageinfo[0].thumburl;
@@ -28,6 +31,7 @@ form.addEventListener("submit", async (event) => {
 
   const query = input.value.trim();
 
+  // Ignore empty searches
   if (!query) return;
 
   const url =
@@ -39,6 +43,7 @@ form.addEventListener("submit", async (event) => {
 
   const response = await fetch(url);
 
+  // Check if the request was successful
   if (!response.ok) {
     throw new Error(response.status);
   }
@@ -47,5 +52,5 @@ form.addEventListener("submit", async (event) => {
 
   const items = Object.values(data.query.pages);
 
-  render(items);
+  render(items, query);
 });
